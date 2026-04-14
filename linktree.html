@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arte Contábil - Fale Conosco</title>
+  <meta name="description" content="Conecte-se com a Arte Contábil. Escolha o especialista que melhor atender suas necessidades." />
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #FF6B00 0%, #e05e00 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===========================
+       CONTAINER
+    =========================== */
+    .container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    /* ===========================
+       HEADER
+    =========================== */
+    .linktree-header {
+      text-align: center;
+      margin-bottom: 48px;
+      animation: fadeInDown 0.6s ease;
+    }
+    .linktree-header img {
+      height: 80px;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2));
+    }
+    .linktree-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .linktree-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+    .linktree-desc {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       LINKS SECTION
+    =========================== */
+    .linktree-section {
+      margin-bottom: 32px;
+      animation: fadeInUp 0.6s ease;
+      animation-fill-mode: both;
+    }
+    .linktree-section:nth-child(2) { animation-delay: 0.1s; }
+    .linktree-section:nth-child(3) { animation-delay: 0.2s; }
+    .linktree-section:nth-child(4) { animation-delay: 0.3s; }
+    .linktree-section:nth-child(5) { animation-delay: 0.4s; }
+    .linktree-section:nth-child(6) { animation-delay: 0.5s; }
+    .linktree-section:nth-child(7) { animation-delay: 0.6s; }
+    .linktree-section:nth-child(8) { animation-delay: 0.7s; }
+    .linktree-section:nth-child(9) { animation-delay: 0.8s; }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    /* ===========================
+       LINK BUTTONS
+    =========================== */
+    .linktree-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 16px;
+      padding: 18px 24px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      border: 2px solid transparent;
+      text-decoration: none;
+      color: #1a1a1a;
+    }
+    .linktree-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+      border-color: #FF6B00;
+    }
+    .linktree-link:active {
+      transform: translateY(-2px);
+    }
+
+    .link-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    /* Cores dos ícones por tipo */
+    .link-whatsapp .link-icon {
+      background: linear-gradient(135deg, #25D366, #20BA5A);
+      color: #fff;
+    }
+    .link-instagram .link-icon {
+      background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
+      color: #fff;
+    }
+    .link-linkedin .link-icon {
+      background: linear-gradient(135deg, #0A66C2, #0052CC);
+      color: #fff;
+    }
+
+    .link-content {
+      flex: 1;
+    }
+    .link-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      margin-bottom: 3px;
+    }
+    .link-role {
+      font-size: 0.75rem;
+      color: #FF6B00;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .link-desc {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    .link-arrow {
+      font-size: 1.2rem;
+      color: #FF6B00;
+      transition: transform 0.3s;
+    }
+    .linktree-link:hover .link-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ===========================
+       SOCIAL BUTTONS
+    =========================== */
+    .social-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: #fff;
+      border-radius: 12px;
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .social-btn:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: #fff;
+      transform: translateY(-3px);
+    }
+    .social-btn i {
+      font-size: 1.1rem;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .linktree-footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.8rem;
+      animation: fadeIn 1s ease 1s both;
+    }
+    .linktree-footer a {
+      color: rgba(255,255,255,0.9);
+      transition: color 0.2s;
+    }
+    .linktree-footer a:hover {
+      color: #fff;
+    }
+
+    /* ===========================
+       ANIMATIONS
+    =========================== */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 480px) {
+      .linktree-title {
+        font-size: 1.6rem;
+      }
+      .linktree-link {
+        padding: 16px 20px;
+        gap: 12px;
+      }
+      .link-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+      }
+      .link-name {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HEADER -->
+    <div class="linktree-header">
+      <img src="logo.png" alt="Arte Contábil Logo" />
+      <h1 class="linktree-title">Arte Contábil</h1>
+      <p class="linktree-subtitle">Fale Conosco</p>
+      <p class="linktree-desc">Escolha o especialista que melhor atender suas necessidades</p>
+    </div>
+
+    <!-- TEAM SECTION -->
+    <div class="linktree-section">
+      <p class="section-title">👥 Nossos Especialistas</p>
+      
+      <a href="https://wa.me/5531997228519" class="linktree-link link-whatsapp" target="_blank">
+        <div class="link-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="link-content">
+          <div class="link-name">Cilene Santos Silva</div>
+          <div class="link-role">Contadora</div>
+          <div class="link-desc">Consultoria e planejamento tributário</div>
+        </div>
+        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://wa.me/5531991252388" class="linktree-link link-whatsapp" target="_blank">
+        <div class="link-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="link-content">
+          <div class="link-name">Isabela Cristina</div>
+          <div class="link-role">Analista Contábil</div>
+          <div class="link-desc">Escrituração e análise contábil</div>
+        </div>
+        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://wa.me/5531991547494" class="linktree-link link-whatsapp" target="_blank">
+        <div class="link-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="link-content">
+          <div class="link-name">Tayna Xavier</div>
+          <div class="link-role">Departamento Pessoal</div>
+          <div class="link-desc">Folha de pagamento e obrigações</div>
+        </div>
+        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://wa.me/5531992306825" class="linktree-link link-whatsapp" target="_blank">
+        <div class="link-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="link-content">
+          <div class="link-name">Gabriela Domingos</div>
+          <div class="link-role">Analista Fiscal</div>
+          <div class="link-desc">Fiscal, tributário e obrigações</div>
+        </div>
+        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://wa.me/5531971786293" class="linktree-link link-whatsapp" target="_blank">
+        <div class="link-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="link-content">
+          <div class="link-name">Kauan Almeida</div>
+          <div class="link-role">Suporte Geral</div>
+          <div class="link-desc">Informações e agendamentos</div>
+        </div>
+        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+    </div>
+
+    <!-- SOCIAL SECTION -->
+    <div class="linktree-section">
+      <p class="section-title">📱 Redes Sociais</p>
+      
+      <a href="https://instagram.com/artecontabil_" class="linktree-link link-instagram" target="_blank">
+        <div class="link-icon"><i class="fab fa-instagram"></i></div>
+        <div class="link-content">
+          <div class="link-name">Instagram</div>
+          <div class="link-role">@artecontabil_</div>
+          <div class="link-desc">Dicas, notícias e conteúdo contábil</div>
+        </div>
+        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+
+      <a href="https://br.linkedin.com/company/contabilidadesantarita" class="linktree-link link-linkedin" target="_blank">
+        <div class="link-icon"><i class="fab fa-linkedin-in"></i></div>
+        <div class="link-content">
+          <div class="link-name">LinkedIn</div>
+          <div class="link-role">Contabilidade Santa Rita</div>
+          <div class="link-desc">Acompanhe nossas atualizações</div>
+        </div>
+        <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="linktree-footer">
+      <p>© 2025 <strong>Arte Contábil</strong> • Tradição desde 1970</p>
+      <p style="margin-top: 8px; font-size: 0.75rem; color: rgba(255,255,255,0.5);">Belo Horizonte – MG</p>
+    </div>
+  </div>
+
+</body>
+</html>

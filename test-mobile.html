@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Mobile - Arte Contábil</title>
+  <style>
+    body { margin: 0; padding: 0; }
+    .mobile-frame {
+      width: 390px;
+      height: 844px;
+      border: 2px solid #333;
+      margin: 20px auto;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .mobile-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; margin-top: 20px;">Simulação iPhone 13 (390x844px)</h2>
+  <div class="mobile-frame">
+    <iframe src="http://localhost:8080"></iframe>
+  </div>
+</body>
+</html>
