@@ -1060,6 +1060,85 @@
     }
 
     /* ===========================
+       MODAL DE SERVICOS
+    =========================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 9999;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .modal-overlay.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: slideUp 0.3s ease-out;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 16px;
+    }
+    .modal-header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      color: var(--dark);
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .modal-close:hover {
+      color: var(--orange);
+    }
+    .modal-body {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    .modal-footer {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .modal-footer .btn-primary {
+      flex: 1;
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===========================
        CHATBOT WIDGET
     =========================== */
     .chatbot-widget {
@@ -1530,13 +1609,6 @@
   <div class="stats-bar">
     <div class="container">
       <div class="stat-item fade-in">
-        <div class="stat-icon"><i class="fas fa-users"></i></div>
-        <div class="stat-info">
-          <div class="number" data-target="1000">0</div>
-          <div class="label">Clientes Ativos</div>
-        </div>
-      </div>
-      <div class="stat-item fade-in fade-in-delay-1">
         <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
         <div class="stat-info">
           <div class="number" data-target="54">0</div>
@@ -1546,7 +1618,7 @@
       <div class="stat-item fade-in fade-in-delay-2">
         <div class="stat-icon"><i class="fas fa-file-invoice-dollar"></i></div>
         <div class="stat-info">
-          <div class="number" data-target="50000">0</div>
+          <div class="number" data-target="15000">0</div>
           <div class="label">Obrigações Entregues</div>
         </div>
       </div>
@@ -1771,49 +1843,49 @@
         <p class="section-desc">Soluções completas para manter sua empresa em conformidade e impulsionar seu crescimento financeiro.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card fade-in">
+        <div class="service-card fade-in" onclick="abrirModalServico('Consultoria Contábil', 'Análise completa da situação contábil da sua empresa com orientações estratégicas para otimização de resultados. Nossos especialistas analisam seus demonstrativos, identificam oportunidades de melhoria e sugerem estratégias para aumentar a rentabilidade do seu negócio.')">
           <div class="service-icon"><i class="fas fa-calculator"></i></div>
           <h3>Consultoria Contábil</h3>
           <p>Análise completa da situação contábil da sua empresa com orientações estratégicas para otimização de resultados.</p>
           <span class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-card fade-in fade-in-delay-1" onclick="abrirModalServico('Escrituração Contábil', 'Registro preciso e organizado de todas as movimentações financeiras, garantindo conformidade com as normas vigentes. Realizamos a contabilização de todos os eventos econômicos da sua empresa com rigor técnico e atenção aos detalhes.')">
           <div class="service-icon"><i class="fas fa-file-alt"></i></div>
           <h3>Escrituração Contábil</h3>
           <p>Registro preciso e organizado de todas as movimentações financeiras, garantindo conformidade com as normas vigentes.</p>
           <span class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-card fade-in fade-in-delay-2" onclick="abrirModalServico('Planejamento Tributário', 'Estratégias legais para redução da carga tributária, maximizando os lucros e a competitividade da sua empresa. Analisamos os melhores regimes tributários e estruturas para seu negócio, garantindo economia legal de impostos.')">
           <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
           <h3>Planejamento Tributário</h3>
           <p>Estratégias legais para redução da carga tributária, maximizando os lucros e a competitividade da sua empresa.</p>
           <span class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="service-card fade-in fade-in-delay-3">
+        <div class="service-card fade-in fade-in-delay-3" onclick="abrirModalServico('Abertura de Empresas', 'Assessoria completa para abertura, regularização e legalização da sua empresa com agilidade e segurança jurídica. Cuidamos de toda a documentação, registros legais e conformidade regulatória para você iniciar seu negócio sem preocupações.')">
           <div class="service-icon"><i class="fas fa-building"></i></div>
           <h3>Abertura de Empresas</h3>
           <p>Assessoria completa para abertura, regularização e legalização da sua empresa com agilidade e segurança jurídica.</p>
           <span class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="service-card fade-in">
+        <div class="service-card fade-in" onclick="abrirModalServico('Departamento Pessoal', 'Gestão completa de folha de pagamento, admissões, demissões, férias e todas as obrigações trabalhistas. Garantimos conformidade com a legislação trabalhista e previdenciária, mantendo sua empresa sempre regularizada.')">
           <div class="service-icon"><i class="fas fa-users"></i></div>
           <h3>Departamento Pessoal</h3>
           <p>Gestão completa de folha de pagamento, admissões, demissões, férias e todas as obrigações trabalhistas.</p>
           <span class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-card fade-in fade-in-delay-1" onclick="abrirModalServico('Fiscal e Tributário', 'Apuração e entrega de todas as obrigações fiscais nos âmbitos federal, estadual e municipal com total precisão. Cuidamos de ICMS, IPI, PIS, COFINS e demais obrigações acessórias, garantindo que sua empresa esteja sempre em dia com o fisco.')">
           <div class="service-icon"><i class="fas fa-receipt"></i></div>
           <h3>Fiscal e Tributário</h3>
           <p>Apuração e entrega de todas as obrigações fiscais nos âmbitos federal, estadual e municipal com total precisão.</p>
           <span class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-card fade-in fade-in-delay-2" onclick="abrirModalServico('Pessoa Física', 'Declaração de Imposto de Renda, planejamento patrimonial e consultoria financeira para pessoas físicas. Nossos especialistas ajudam você a organizar seus dados financeiros e garantem o máximo de restituição possível.')">
           <div class="service-icon"><i class="fas fa-user-tie"></i></div>
           <h3>Pessoa Física</h3>
           <p>Declaração de Imposto de Renda, planejamento patrimonial e consultoria financeira para pessoas físicas.</p>
           <span class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></span>
         </div>
-        <div class="service-card fade-in fade-in-delay-3">
+        <div class="service-card fade-in fade-in-delay-3" onclick="abrirModalServico('Cartórios', 'Contabilidade especializada para cartórios com conhecimento profundo das legislações específicas do segmento. Compreendemos as particularidades das atividades cartoriais e oferecemos soluções contábeis personalizadas.')">
           <div class="service-icon"><i class="fas fa-landmark"></i></div>
           <h3>Cartórios</h3>
           <p>Contabilidade especializada para cartórios com conhecimento profundo das legislações específicas do segmento.</p>
@@ -2030,7 +2102,19 @@
     </div>
   </div>
 
-
+  <!-- MODAL DE SERVICOS -->
+  <div class="modal-overlay" id="modalServico">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitulo">Serviço</h2>
+        <button class="modal-close" onclick="fecharModalServico()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="modalDescricao"></div>
+      <div class="modal-footer">
+        <button class="btn-primary" onclick="fecharModalServico(); document.querySelector('[href=\"#contato\"]').click();">Solicitar Proposta</button>
+      </div>
+    </div>
+  </div>
 
   <!-- BACK TO TOP -->
   <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">
@@ -2156,6 +2240,24 @@
     if (statsBar) counterObserver.observe(statsBar);
 
     /* ===========================
+       MODAL DE SERVICOS
+    =========================== */
+    function abrirModalServico(titulo, descricao) {
+      document.getElementById('modalTitulo').textContent = titulo;
+      document.getElementById('modalDescricao').textContent = descricao;
+      document.getElementById('modalServico').classList.add('active');
+    }
+    function fecharModalServico() {
+      document.getElementById('modalServico').classList.remove('active');
+    }
+    document.getElementById('modalServico').addEventListener('click', function(e) {
+      if (e.target === this) fecharModalServico();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') fecharModalServico();
+    });
+
+    /* ===========================
        SIMULADOR DE IMPOSTOS
     =========================== */
     function calcularSimulador() {
@@ -2174,24 +2276,26 @@
       let melhorRegime = regime;
       let economia = 0;
 
-      // Cálculos por regime
+      // Cálculos por regime (com impacto de funcionários)
+      const encargosFunc = funcionarios > 0 ? funcionarios * 2000 * 0.20 : 0; // Encargos de 20% sobre salário médio de R$ 2000
+      
       if (regime === 'mei') {
         impostos = 65; // Valor fixo MEI
-        prolabore = faturamento * 0.7;
+        prolabore = faturamento * 0.7 - encargosFunc;
       } else if (regime === 'simples') {
-        impostos = faturamento * 0.06; // 6% simplificado
-        prolabore = faturamento * 0.5;
+        impostos = faturamento * 0.06 + encargosFunc; // 6% + encargos
+        prolabore = faturamento * 0.5 - encargosFunc;
       } else if (regime === 'presumido') {
-        impostos = faturamento * 0.15; // 15% simplificado
-        prolabore = faturamento * 0.4;
+        impostos = faturamento * 0.15 + encargosFunc; // 15% + encargos
+        prolabore = faturamento * 0.4 - encargosFunc;
       } else if (regime === 'real') {
-        impostos = faturamento * 0.25; // 25% simplificado
-        prolabore = faturamento * 0.3;
+        impostos = faturamento * 0.25 + encargosFunc; // 25% + encargos
+        prolabore = faturamento * 0.3 - encargosFunc;
       }
 
       // Calcular economia comparando com Lucro Real
       if (regime !== 'real') {
-        const impostosReal = faturamento * 0.25;
+        const impostosReal = faturamento * 0.25 + encargosFunc;
         economia = impostosReal - impostos;
       }
 
@@ -2406,13 +2510,47 @@
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.form-submit');
-      btn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
-      btn.style.background = '#27ae60';
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
+      const form = e.target;
+      
+      const nome = form.querySelector('input[placeholder="Seu nome completo"]').value;
+      const empresa = form.querySelector('input[placeholder="Nome da empresa"]').value;
+      const email = form.querySelector('input[type="email"]').value;
+      const telefone = form.querySelector('input[type="tel"]').value;
+      const servico = form.querySelector('select').value;
+      const mensagem = form.querySelector('textarea').value;
+      
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      
+      // Enviar dados para o backend via fetch
+      fetch('https://formspree.io/f/xyzqwert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: nome,
+          empresa: empresa,
+          email: email,
+          telefone: telefone,
+          servico: servico,
+          mensagem: mensagem,
+          to: 'artecontabil.contato@gmail.com'
+        })
+      }).then(response => {
+        btn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
+        btn.style.background = '#27ae60';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+          btn.style.background = '';
+          form.reset();
+        }, 3000);
+      }).catch(error => {
+        console.error('Erro ao enviar:', error);
+        btn.innerHTML = '<i class="fas fa-exclamation"></i> Erro ao enviar';
+        btn.style.background = '#e74c3c';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+          btn.style.background = '';
+        }, 3000);
+      });
     }
   </script>
 </body>
