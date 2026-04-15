@@ -847,75 +847,7 @@
     /* ===========================
        BLOG
     =========================== */
-    .blog { background: #f9f9f9; }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .blog-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      transition: transform .3s, box-shadow .3s;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-    }
-    .blog-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--orange) 0%, #ff8c42 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 3rem;
-      overflow: hidden;
-    }
-    .blog-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .blog-content {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .blog-date {
-      font-size: 0.75rem;
-      color: var(--orange);
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .blog-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--dark);
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-    .blog-excerpt {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-    .blog-source {
-      font-size: 0.75rem;
-      color: #999;
-      font-style: italic;
-    }
+
 
     /* ===========================
        CONTACT
@@ -1070,15 +1002,18 @@
       padding: 20px 0;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
+      text-align: center;
     }
     .footer-bottom p { font-size: 0.82rem; }
     .footer-bottom a { color: var(--orange); }
     .footer-bottom-links {
       display: flex;
       gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     .footer-bottom-links a {
       font-size: 0.82rem;
@@ -1628,7 +1563,6 @@
         <li><a href="#simulador">Simulador</a></li>
         <li><a href="#equipe">Equipe</a></li>
         <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#blog">Notícias</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a href="#contato" class="nav-cta"><i class="fas fa-headset"></i> Fale Conosco</a></li>
       </ul>
@@ -1991,53 +1925,7 @@
         <a href="linktree.html" class="btn-outline-white"><i class="fab fa-whatsapp"></i> WhatsApp</a>  </div>
   </div>
 
-  <!-- BLOG AUTOMATICO -->
-  <section class="blog section" id="blog" style="background: #f9f9f9;">
-    <div class="container">
-      <div class="section-header fade-in">
-        <span class="section-tag">Fique Atualizado</span>
-        <h2 class="section-title">Notícias e <span>Artigos</span></h2>
-        <div class="section-divider"></div>
-        <p class="section-desc">Acompanhe as últimas notícias e tendências do mercado contábil.</p>
-      </div>
-      <div class="blog-grid" id="blogContainer">
-        <!-- Notícias padrão que aparecem imediatamente -->
-        <div class="blog-card fade-in" style="animation-delay: 0s;">
-          <div class="blog-image">
-            <i class="fas fa-newspaper"></i>
-          </div>
-          <div class="blog-content">
-            <div class="blog-date">15/04/2026</div>
-            <h3 class="blog-title">Novas Regras de Declaração de Imposto de Renda 2024</h3>
-            <p class="blog-excerpt">Saiba quais são as principais mudanças nas regras de declaração de IR para o ano de 2024 e como se preparar...</p>
-            <p class="blog-source">Fonte: Arte Contábil</p>
-          </div>
-        </div>
-        <div class="blog-card fade-in" style="animation-delay: 0.1s;">
-          <div class="blog-image">
-            <i class="fas fa-newspaper"></i>
-          </div>
-          <div class="blog-content">
-            <div class="blog-date">15/04/2026</div>
-            <h3 class="blog-title">Guia Completo sobre Simples Nacional</h3>
-            <p class="blog-excerpt">Entenda como funciona o regime de Simples Nacional, seus benefícios e como calcular os impostos corretamente...</p>
-            <p class="blog-source">Fonte: Arte Contábil</p>
-          </div>
-        </div>
-        <div class="blog-card fade-in" style="animation-delay: 0.2s;">
-          <div class="blog-image">
-            <i class="fas fa-newspaper"></i>
-          </div>
-          <div class="blog-content">
-            <div class="blog-date">15/04/2026</div>
-            <h3 class="blog-title">Dicas para Organizar a Contabilidade da sua Empresa</h3>
-            <p class="blog-excerpt">Confira as melhores práticas para manter a contabilidade da sua empresa organizada e em dia com o fisco...</p>
-            <p class="blog-source">Fonte: Arte Contábil</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- CONTACT -->
   <section class="contact section" id="contato">
@@ -2372,58 +2260,7 @@
     const statsBar = document.querySelector('.stats-bar');
     if (statsBar) counterObserver.observe(statsBar);
 
-    /* ===========================
-       BLOG AUTOMATICO
-    =========================== */
-    // Tentar carregar notícias reais da API, mas sem quebrar o layout
-    async function tentarCarregarNoticiasReais() {
-      const blogContainer = document.getElementById('blogContainer');
-      if (!blogContainer) return;
-      
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3000);
-        
-        const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.contabeis.com.br/feed/', {
-          signal: controller.signal
-        });
-        
-        clearTimeout(timeoutId);
-        
-        if (response.ok) {
-          const data = await response.json();
-          if (data.items && data.items.length > 0) {
-            const artigos = data.items.slice(0, 3);
-            blogContainer.innerHTML = artigos.map((artigo, index) => {
-              const dataArtigo = new Date(artigo.pubDate);
-              const dataFormatada = dataArtigo.toLocaleDateString('pt-BR');
-              const descricao = (artigo.description || '').replace(/<[^>]*>/g, '').substring(0, 120) + '...';
-              
-              return `
-                <div class="blog-card fade-in" style="animation-delay: ${index * 0.1}s;">
-                  <div class="blog-image">
-                    <i class="fas fa-newspaper"></i>
-                  </div>
-                  <div class="blog-content">
-                    <div class="blog-date">${dataFormatada}</div>
-                    <h3 class="blog-title">${artigo.title}</h3>
-                    <p class="blog-excerpt">${descricao}</p>
-                    <p class="blog-source">Fonte: Contabeis.com.br</p>
-                  </div>
-                </div>
-              `;
-            }).join('');
-          }
-        }
-      } catch (error) {
-        console.log('Não foi possível carregar notícias externas, mantendo conteúdo padrão');
-      }
-    }
-    
-    // Tentar carregar notícias reais sem quebrar o layout estático
-    tentarCarregarNoticiasReais();
-    // Tentar recarregar a cada 10 minutos
-    setInterval(tentarCarregarNoticiasReais, 10 * 60 * 1000);
+
 
     /* ===========================
        MODAL DE SERVICOS
