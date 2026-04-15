@@ -1973,30 +1973,30 @@
         </div>
         <div class="contact-form fade-in fade-in-delay-1">
           <h4>Solicite uma proposta gratuita</h4>
-          <form onsubmit="handleSubmit(event)">
+          <form action="https://formspree.io/f/xyzpwkwj" method="POST">
             <div class="form-row">
               <div class="form-group">
                 <label>Nome *</label>
-                <input type="text" placeholder="Seu nome completo" required />
+                <input type="text" name="nome" placeholder="Seu nome completo" required />
               </div>
               <div class="form-group">
                 <label>Empresa</label>
-                <input type="text" placeholder="Nome da empresa" />
+                <input type="text" name="empresa" placeholder="Nome da empresa" />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label>E-mail *</label>
-                <input type="email" placeholder="seu@email.com" required />
+                <input type="email" name="email" placeholder="seu@email.com" required />
               </div>
               <div class="form-group">
                 <label>Telefone *</label>
-                <input type="tel" placeholder="(31) 9999-9999" required />
+                <input type="tel" name="telefone" placeholder="(31) 9999-9999" required />
               </div>
             </div>
             <div class="form-group">
               <label>Serviço de Interesse</label>
-              <select>
+              <select name="servico">
                 <option value="">Selecione um serviço...</option>
                 <option>Consultoria Contábil</option>
                 <option>Planejamento Tributário</option>
@@ -2010,7 +2010,7 @@
             </div>
             <div class="form-group">
               <label>Mensagem</label>
-              <textarea placeholder="Descreva brevemente sua necessidade..."></textarea>
+              <textarea name="mensagem" placeholder="Descreva brevemente sua necessidade..."></textarea>
             </div>
             <button type="submit" class="btn-primary form-submit">
               <i class="fas fa-paper-plane"></i> Enviar Mensagem
@@ -2533,51 +2533,7 @@
     /* ===========================
        FORM SUBMIT
     =========================== */
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      const form = e.target;
-      
-      const nome = form.querySelector('input[placeholder="Seu nome completo"]').value;
-      const empresa = form.querySelector('input[placeholder="Nome da empresa"]').value;
-      const email = form.querySelector('input[type="email"]').value;
-      const telefone = form.querySelector('input[type="tel"]').value;
-      const servico = form.querySelector('select').value;
-      const mensagem = form.querySelector('textarea').value;
-      
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-      
-      // Enviar dados para o backend via fetch
-      fetch('https://formspree.io/f/xyzqwert', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          nome: nome,
-          empresa: empresa,
-          email: email,
-          telefone: telefone,
-          servico: servico,
-          mensagem: mensagem,
-          to: 'artecontabil.contato@gmail.com'
-        })
-      }).then(response => {
-        btn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
-        btn.style.background = '#27ae60';
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
-          btn.style.background = '';
-          form.reset();
-        }, 3000);
-      }).catch(error => {
-        console.error('Erro ao enviar:', error);
-        btn.innerHTML = '<i class="fas fa-exclamation"></i> Erro ao enviar';
-        btn.style.background = '#e74c3c';
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
-          btn.style.background = '';
-        }, 3000);
-      });
-    }
+
   </script>
 </body>
 </html>
