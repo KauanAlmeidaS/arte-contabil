@@ -338,17 +338,25 @@
       padding: 0;
     }
     .stats-bar .container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 900px;
-      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .stats-bar .container > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      max-width: 300px;
     }
     .stat-item {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
       padding: 28px 24px;
       border-right: 1px solid rgba(255,255,255,0.2);
+      width: 100%;
     }
     .stat-item:last-child { border-right: none; }
     .stat-icon {
