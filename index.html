@@ -2362,7 +2362,8 @@
         },
         {
           title: 'Dicas para Organizar a Contabilidade da sua Empresa',
-          description: 'Confira as melhores práticas para manter a contabilidade da sua empresa organizada e em dia com o fisco.'
+          description: 'Confira as melhores práticas para manter a contabilidade da sua empresa organizada e em dia com o fisco.',
+          pubDate: new Date().toISOString()
         }
       ];
       
@@ -2537,9 +2538,13 @@
     const chatbotToggle = document.getElementById('chatbotToggle');
     const chatbotClose = document.getElementById('chatbotClose');
     const chatbotWindow = document.getElementById('chatbotWindow');
-    const chatbotInput = document.getElementById('chatbotInput');
-    const chatbotSend = document.getElementById('chatbotSend');
     const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotQuickButtons = document.getElementById('chatbotQuickButtons');
+    
+    // Verificar se os elementos existem antes de adicionar listeners
+    if (!chatbotToggle || !chatbotClose || !chatbotWindow || !chatbotMessages) {
+      console.warn('Elementos do chatbot nao encontrados');
+    }
 
     // Base de conhecimento do chatbot
     const faqDatabase = [
@@ -2698,24 +2703,23 @@
       });
     }
 
-    chatbotToggle.addEventListener('click', () => {
-      chatbotWindow.classList.toggle('open');
-      if (chatbotWindow.classList.contains('open')) {
-        if (chatbotMessages.children.length === 0) {
-          addMessage('Olá! 👋 Sou o Assistente Contábil. Como posso te ajudar hoje?', false);
-          renderQuickButtons();
+    if (chatbotToggle && chatbotWindow && chatbotMessages) {
+      chatbotToggle.addEventListener('click', () => {
+        chatbotWindow.classList.toggle('open');
+        if (chatbotWindow.classList.contains('open')) {
+          if (chatbotMessages.children.length === 0) {
+            addMessage('Olá! 👋 Sou o Assistente Contábil. Como posso te ajudar hoje?', false);
+            renderQuickButtons();
+          }
         }
-      }
-    });
+      });
+    }
 
-    chatbotClose.addEventListener('click', () => {
-      chatbotWindow.classList.remove('open');
-    });
-
-    chatbotSend.addEventListener('click', sendMessage);
-    chatbotInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendMessage();
-    });
+    if (chatbotClose && chatbotWindow) {
+      chatbotClose.addEventListener('click', () => {
+        chatbotWindow.classList.remove('open');
+      });
+    }
 
     /* ===========================
        FORM SUBMIT
